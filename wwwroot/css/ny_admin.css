@@ -1,0 +1,74 @@
+﻿.myownmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    margin-top: 100px; /* Location of the box */
+    padding-top: 0px;
+    left: 40px;
+    top: 0;
+    width: 320px; /* Full width */
+    height: 450px; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #ffffff; /* Fallback color */
+    resize: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* The Close Button */
+div span.myownclose {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    color: #000000;
+    font-size: 42px;
+    font-weight: bolder;
+    transition: 0.3s;
+}
+
+.myownclose:hover,
+.myownclose:focus {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#output table {
+    width: 290px;
+    height: 450px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#output th, #output td,
+#mediatable th, #mediatable td,
+#tabell th, #tabell td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#slag {
+    margin-top: 10px;
+    padding: 5px;
+    padding-top: 2px;
+    border-radius: .25rem;
+    height: 40px;
+    width: 160px;
+    margin-left: 0px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: red;
+}
+
+#centrerat {
+    width: 70%;
+    margin: auto;
+}
+
+div.topcentrerat {
+    width: 20%;
+    margin: auto;
+    margin-top: 70px;
+    padding-top: 70px;
+}

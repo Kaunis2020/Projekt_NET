@@ -1,0 +1,134 @@
+[
+  {
+    "Nummer": 1,
+    "Kund_ID": "PR979e8698",
+    "KundTyp": "Privat",
+    "FirmaNamn": "",
+    "KontaktPerson": "Marty McFly",
+    "GatuAdress": "JF Kennedy Drive 28",
+    "Ort": "12345 Hill Valley",
+    "Land": "USA",
+    "Bild": "979e8698-5y.jpg"
+  },
+  {
+    "Nummer": 2,
+    "Kund_ID": "PR9b1259fa",
+    "KundTyp": "Privat",
+    "FirmaNamn": "",
+    "KontaktPerson": "Bridget Jones",
+    "GatuAdress": "127 B Queen Street",
+    "Ort": "60640 Chicago",
+    "Land": "USA",
+    "Bild": "9b1259fa-0s.jpg"
+  },
+  {
+    "Nummer": 3,
+    "Kund_ID": "FI7cc4be98",
+    "KundTyp": "Företag",
+    "FirmaNamn": "Microsoft Corporation",
+    "KontaktPerson": "Bill Gates",
+    "GatuAdress": "One Microsoft Way",
+    "Ort": "98052 Redmond",
+    "Land": "USA",
+    "Bild": "7cc4be98-22.jpg"
+  },
+  {
+    "Nummer": 4,
+    "Kund_ID": "FIf9d63132",
+    "KundTyp": "Företag",
+    "FirmaNamn": "Biff's Auto Detailing",
+    "KontaktPerson": "Biff Tannen",
+    "GatuAdress": "Kennedy Drive 18",
+    "Ort": "12345 Hill Valley",
+    "Land": "USA",
+    "Bild": "f9d63132-1n.png"
+  },
+  {
+    "Nummer": 5,
+    "Kund_ID": "FI563bf5d4",
+    "KundTyp": "Företag",
+    "FirmaNamn": "Brown Enterprises",
+    "KontaktPerson": "Dr. Emmett Brown",
+    "GatuAdress": "Riverside Drive 14",
+    "Ort": "12345 Hill Valley",
+    "Land": "USA",
+    "Bild": "563bf5d4-7t.jpg"
+  },
+  {
+    "Nummer": 6,
+    "Kund_ID": "PR5d5621a3",
+    "KundTyp": "Privat",
+    "FirmaNamn": "",
+    "KontaktPerson": "John McClane",
+    "GatuAdress": "345 Broad Way",
+    "Ort": "10467 New York",
+    "Land": "USA",
+    "Bild": "5d5621a3-ne.jpg"
+  },
+  {
+    "Nummer": 7,
+    "Kund_ID": "FIc0563dab",
+    "KundTyp": "Företag",
+    "FirmaNamn": "Jerry Sports Ltd",
+    "KontaktPerson": "Jerry Maguire",
+    "GatuAdress": "789 Central Avenue",
+    "Ort": "10625 New York",
+    "Land": "USA",
+    "Bild": "c0563dab-ce.png"
+  },
+  {
+    "Nummer": 8,
+    "Kund_ID": "PR6a3e086d",
+    "KundTyp": "Privat",
+    "FirmaNamn": "",
+    "KontaktPerson": "Elle Woods",
+    "GatuAdress": " 45 Sunset Boulevard",
+    "Ort": "90001 Los Angeles",
+    "Land": "USA",
+    "Bild": "6a3e086d-ds.jpg"
+  },
+  {
+    "Nummer": 9,
+    "Kund_ID": "PRf75efaa1",
+    "KundTyp": "Privat",
+    "FirmaNamn": " ",
+    "KontaktPerson": "Anna Coleman",
+    "GatuAdress": "24A King Street",
+    "Ort": "94105 San Francisco",
+    "Land": "USA",
+    "Bild": "f75efaa1-3n.jpg"
+  },
+  {
+    "Nummer": 10,
+    "Kund_ID": "FI7c92fe5a",
+    "KundTyp": "Företag",
+    "FirmaNamn": "Google Inc",
+    "KontaktPerson": "Sergey Brin",
+    "GatuAdress": "56 San Mateo Way",
+    "Ort": "94025 Menlo Park",
+    "Land": "USA",
+    "Bild": "7c92fe5a-8n.jpg"
+  },
+  {
+    "Nummer": 11,
+    "Kund_ID": "FIf5043185",
+    "KundTyp": "Företag",
+    "FirmaNamn": "Facebook Inc",
+    "KontaktPerson": "Mark Zuckerberg",
+    "GatuAdress": "12 Hacker Way",
+    "Ort": "94022 Palo Alto",
+    "Land": "USA",
+    "Bild": "f5043185-ag.jpg"
+  },
+  {
+    "Nummer": 12,
+    "Kund_ID": "PR0d9a6c5c",
+    "KundTyp": "Privat",
+    "FirmaNamn": " ",
+    "KontaktPerson": "Liza Minelli",
+    "GatuAdress": "Sunset Boulevard 234",
+    "Ort": "45662 Los Angeles",
+    "Land": "USA",
+    "Bild": "0d9a6c5c-7a.jpg"
+  }
+]

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Projekt</title>
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/emplstil.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink(" Bonzi's Mediabutik ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand extrabold" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="links">@Html.ActionLink(" Home ", "Index", "Home")</li>
+                    <li class="links">@Html.ActionLink(" Media ", "OurPagMedia", "Media")</li>
+                    <li class="links">@Html.ActionLink(" Sök ", "SearchMedia", "Media")</li>
+                    <li class="links">@Html.ActionLink(" Om oss ", "About", "Home")</li>
+                    <li class="links">@Html.ActionLink(" Medarbetare ", "allOurEmployees", "Home")</li>
+                    <li class="links">@Html.ActionLink(" Kontakt ", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <div class="container body-content">
+        <hr />
+        <footer>
+            <p id="footerright"><a href="@Url.Action("AdminLogin", "Admin")"><img id="lockdiv" src="~/images/lockico.png" alt="lock" /></a></p>
+            <p>&copy; &nbsp;  @DateTime.Now.Date.ToShortDateString()  -- Bonzi's Mediabutik AB</p>
+        </footer>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

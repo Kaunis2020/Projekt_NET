@@ -1,0 +1,56 @@
+﻿@model Projekt.Models.FirmCustomer
+@{
+    ViewBag.Title = "FirmForm";
+    Layout = ViewBag.Layout;
+}
+<h2>Företagskund</h2>
+    <p>
+        Detta formulär är avsett för företagskunder, som önskar<br />
+        att köpa våra böcker och andra media för sitt företag.<br />
+    </p>
+    <br />
+    @using (Html.BeginForm("RegisterFirm", "Admin", FormMethod.Post,
+        new { enctype = "multipart/form-data" }))
+    {
+        <table id="firmform" class="form-horizontal">
+            <tr>
+                <td>@Html.LabelFor(m => m.FirmaNamn, htmlAttributes: new { @class = "control-label col-md-2" }) </td>
+                <td>@Html.EditorFor(m => m.FirmaNamn, new { htmlAttributes = new { @class = "form-control" } }) </td>
+                <td>@Html.ValidationMessageFor(m => m.FirmaNamn, "", new { @class = "red-text-danger" }) </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.KontaktPerson, htmlAttributes: new { @class = "control-label col-md-2" }) </td>
+                <td>@Html.EditorFor(m => m.KontaktPerson, new { htmlAttributes = new { @class = "form-control" } }) </td>
+                <td>@Html.ValidationMessageFor(m => m.KontaktPerson, "", new { @class = "red-text-danger" }) </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.GatuAdress, htmlAttributes: new { @class = "control-label col-md-2" }) </td>
+                <td>@Html.EditorFor(m => m.GatuAdress, new { htmlAttributes = new { @class = "form-control" } }) </td>
+                <td>@Html.ValidationMessageFor(m => m.GatuAdress, "", new { @class = "red-text-danger" }) </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.Ort, htmlAttributes: new { @class = "control-label col-md-2" }) </td>
+                <td>@Html.EditorFor(m => m.Ort, new { htmlAttributes = new { @class = "form-control" } }) </td>
+                <td>@Html.ValidationMessageFor(m => m.Ort, "", new { @class = "red-text-danger" }) </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.Land, htmlAttributes: new { @class = "control-label col-md-2" }) </td>
+                <td>
+                    @Html.DropDownListFor(m=> m.Land,
+                        new SelectList(Enum.GetValues(typeof(Land))),
+                        new { @id = "landdrop", @class = "form-control" })
+                </td>
+                <td>@Html.ValidationMessageFor(m => m.Land) </td>
+            </tr>
+            <tr>
+                <td id="dinbild">@Html.Label("Frivilligt foto", "Frivilligt foto", htmlAttributes: new { @id = "fotolab", @class = "control-label col-md-2" }) </td>
+                <td><input type="file" name="Image" />  &nbsp; <br /></td>
+            </tr>
+            <tr>
+                <td> &nbsp; </td>
+                <td><input type="submit" class="btn btn-primary" value="Registrera" /><br /></td>
+            </tr>
+        </table>
+    }
+<br />
+<br/>

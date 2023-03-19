@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Bolagets styrelse";
+}
+@model IEnumerable<Member>
+<link rel="stylesheet" href="~/css/agentstil/clippy.css" />
+<div id="parent"></div>
+<table id="usertable">
+    <caption><h1>@ViewData["Title"]</h1></caption>
+    <tr><th class="bredd">Namn</th><th class="foto">Foto</th><th>Befattning</th><th>Kommentar</th><th class="bredd">Info</th></tr>
+    @{
+        if (Model != null && Model.Count() > 0)
+        {
+            foreach (var item in Model)
+            {
+                string foto = "../images/" + @item.Name + ".png";
+                <tr>
+                    <td class="bredd">@item.Name</td>
+                    <td class="foto"><img src='@foto' alt="foto" /></td>
+                    <td>@item.Role</td>
+                    <td class="bredd">@item.Info</td>
+                    <td class="klickbar" onclick="presentMe('@item.Name', '@item.Replik1', '@item.Replik2', '@item.Replik3');">INFO</td>
+                </tr>
+            }
+        }
+    }
+</table>
+<br/>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/clippy.js" asp-append-version="true"></script>
+<script src="~/js/load.js" asp-append-version="true"></script>

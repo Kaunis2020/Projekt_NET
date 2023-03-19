@@ -1,0 +1,215 @@
+﻿
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    margin-top: 100px; /* Location of the box */
+    padding-top: 50px;
+    left: 20px;
+    top: 0;
+    width: 270px; /* Full width */
+    height: 330px; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    resize: none;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.audiomodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    margin-top: 100px; /* Location of the box */
+    padding-top: 50px;
+    left: 20px;
+    top: 0;
+    width: 380px; /* Full width */
+    height: 400px; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    resize: none;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.videomodal, .genmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    margin-top: 100px; /* Location of the box */
+    padding-top: 30px;
+    left: 20px;
+    top: 0;
+    width: 550px; /* Full width */
+    height: 400px; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    resize: none;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#leftspalt {
+    float: left;
+    width: 230px;
+    max-width: 230px;
+}
+
+#rightspalt {
+    float: right;
+    width: 260px;
+    margin-right: 35px;
+}
+
+#typ {
+    margin-top: 10px;
+    margin-left: 0;
+    width: 150px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#year {
+    width: 240px;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#moms {
+    width: 240px;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+img.videomodal-content {
+    width: 220px;
+    height: 220px;
+    max-width: 220px;
+    max-height: 220px;
+    margin-left: 2px;
+    margin-top: 10px;
+}
+
+#story {
+    margin-top: 30px;
+    margin-right: 35px;
+    width: 260px;
+    flex-wrap: wrap;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#vdstory {
+    margin-top: 40px;
+    margin-right: 35px;
+    width: 260px;
+    flex-wrap: wrap;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+img.modal-content {
+    width: 220px;
+    height: 220px;
+    max-width: 220px;
+    max-height: 220px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 300px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 250px;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 15px;
+    height: 150px;
+    font-weight: bold;
+}
+
+#videocaption {
+    width: 90%;
+    max-width: 230px;
+    margin-top: 40px;
+    margin-left: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* The Close Button */
+div span.myclose {
+    position: absolute;
+    top: 1px;
+    right: 15px;
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: bolder;
+    transition: 0.3s;
+}
+
+.myclose:hover,
+.myclose:focus {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+#klickbar {
+    cursor: pointer;
+}
+
+#musik {
+    width: 70%;
+    margin-top: 1px;
+    margin-bottom: 20px;
+}
+
+#klickat {
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: greenyellow;
+    text-decoration: underline;
+}

@@ -1,0 +1,84 @@
+﻿@model Projekt.Models.Message
+
+@{
+    Layout = "~/Views/Shared/BasicLayout.cshtml";
+    ViewBag.Title = "Message";
+}
+
+<div id="centrerat">
+    <div id="centrerat">
+        <div id="kontaktform">
+            @using (Html.BeginForm("PostMessage", "Home", FormMethod.Post,
+       new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h2>Kontakta oss!</h2>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Land, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.Land,
+                            new SelectList(Enum.GetValues(typeof(Land))),
+                            new { @id = "landdrop", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Land)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Meddelande, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Meddelande, new { htmlAttributes = new { @class = "form-control" }, rows = "6", cols = "40" })<br />
+                        @Html.ValidationMessageFor(model => model.Meddelande, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => Message.Postat, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => Message.Postat, new { htmlAttributes = new { @class = "form-control" }, disabled = "disabled", @readonly = "readonly"})
+                        @Html.ValidationMessageFor(model => Message.Postat, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="buttonhold">
+                            <input type="submit" value=" Skicka " class="sendknapp" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+            <br />
+            <div><p>@ViewBag.Message</p></div>
+            <br />
+            <div>
+                @Html.ActionLink("Tillbaka", "Index", "Home")
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>

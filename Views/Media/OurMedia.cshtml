@@ -1,0 +1,42 @@
+﻿@using Projekt.Models
+@model IEnumerable<Media>
+@{
+    ViewBag.Title = "Alla Media";
+    Layout = "~/Views/Shared/BasicLayout.cshtml";
+}
+<table id="cdboktable">
+    <tr><th> </th><th><h2>Utbud av alla våra media</h2></th><th> </th></tr>
+    <tr>
+        <td><img src="~/images/cdsp2.gif" alt="cd" /></td>
+        <td>
+            <p>
+                Nedan presenteras utbud av våra media<br />
+                Klicka på varje media för att se detajlerad information <br />
+                Klicka på de röda rubrikerna för sortering av posterna
+            </p>
+        </td>
+        <td><img src="~/images/openbok.gif" alt="bok" /></td>
+    </tr>
+</table>
+<br/>
+<br/>
+<div>
+    <partial name="ProduktList.cshtml" />
+</div>
+
+<div id="genModal" class="genmodal">
+    <span class="myclose" onclick="closeall();">&times;</span>
+    <div id="rightspalt">
+        <div id="typ"></div>
+        <div id="story"></div>
+        <div id="year"></div>
+        <div id="moms"></div>
+    </div>
+    <div id="leftspalt">
+        <img class="videomodal-content" id="img01">
+        <div id="videocaption"></div>
+    </div>
+</div>
+<br />
+<br />
+<br />

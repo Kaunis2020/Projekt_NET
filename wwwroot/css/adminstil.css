@@ -1,0 +1,249 @@
+﻿body{
+    margin-top:20px;
+}
+
+#rightribr {
+    float: right;
+    margin-top: 50px;
+    margin-right: 60px;
+}
+
+    #rightribr p {
+        font-size: 22px;
+    }
+
+#landdrop {
+    width: 280px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#searchtable {
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+    #searchtable caption {
+        display: table-caption;
+        text-align: center;
+        font-size: 25px;
+        font-weight: bolder;
+        padding-bottom: 15px;
+    }
+
+    #searchtable th, #searchtable td {
+        padding: 5px;
+        text-align: center;
+    }
+
+    #searchtable th {
+        font-size: 24px;
+    }
+
+    #searchtable td {
+        font-size: 20px;
+    }
+
+#taggs, #sokruta {
+    margin: 30px;
+    height: 44px;
+    width: 250px;
+    background-color: white;
+    background-image: url('../images/searchicon.png');
+    background-position: 2px 1px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    border: 2px solid;
+    border-color: #ccc000;
+    border-radius: 5px;
+}
+
+.links {
+    line-height: 1.8em;
+    font-size: 125%;
+    font-weight: bold;
+}
+
+#tabell {
+    width: 100%;
+    margin: auto;
+}
+
+    #tabell table {
+        float: left;
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 50px;
+        border: 1px solid black;
+    }
+
+    #tabell th, #tabell td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid black;
+    }
+
+.styled-select {
+    margin-left: 185px;
+    margin-bottom: 40px;
+    width: 230px;
+    height: 35px;
+    overflow: hidden;
+    background: url('../images/Select.png') no-repeat;
+    border-radius: 10px;
+}
+
+    .styled-select select {
+        background: transparent;
+        text-indent: 10px;
+        width: 228px;
+        padding: 5px;
+        border: 1px solid #CCC;
+        font-size: 16px;
+        height: 34px;
+        font-weight: bold;
+        outline: 0px;
+        -webkit-appearance: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .styled-select option {
+        background: lightgrey;
+        width: 228px;
+        padding: 5px;
+        border: 1px solid #CCC;
+        font-size: 16px;
+        height: 34px;
+        outline: 0px;
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+
+#nyaudio {
+    display: none;
+}
+
+.klickamig {
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: #f0f8ff;
+    font-weight: bold;
+}
+
+#varna {
+    color: red;
+}
+
+#brevtab {
+    width: 100%;
+    margin: auto;
+}
+
+    #brevtab th, #brevtab td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid black;
+    }
+
+.epost {
+    color: blue;
+    text-decoration-color: blue;
+    text-decoration-line: underline;
+}
+
+.tdfem {
+    width: 35%;
+    text-wrap: normal;
+}
+
+#container {
+    width: 870px;
+    background-color: #000000;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+    #container h3 {
+        margin-left: 15px;
+        font-weight: bolder;
+        color: red;
+    }
+
+    #container .left {
+        width: 270px;
+        background-color: #FFFFFF;
+        float: left;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    #container .mitt {
+        width: 270px;
+        background-color: #FFFFFF;
+        float: left;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    #container .right {
+        width: 270px;
+        background-color: #FFFFFF;
+        float: left;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    #container:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
+#sparaknapp {
+    margin-top: 0;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+#klick_a, #klick_e {
+    cursor: pointer;
+}
+
+.hand {
+    cursor: pointer;
+    color:red;
+    font-weight:bolder;
+}
+
+.editkryss {
+    color: black;
+    font-size: 42px;
+    font-weight: bolder;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#reset {
+    margin-left: 40px;
+}
+
+input.sendknapp {
+    background-color: #4CAF50;
+}
+
+.helplinks {
+    line-height: 1.9em;
+    font-size: 150%;
+    font-weight: bold;
+}

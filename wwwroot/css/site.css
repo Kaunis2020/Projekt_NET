@@ -1,0 +1,261 @@
+﻿body {
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+#jubmboholder {
+    margin-left: 20px;
+}
+
+caption{
+    text-align:center;
+    padding-bottom:20px;
+}
+#logo {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.extrabold{
+    font-weight:bolder;
+}
+
+p.lead {
+    font-size: 28px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+rubrik.h1 {
+    margin-top: 50px;
+    padding-top: 50px;
+    margin-left: 0px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.links {
+    line-height: 1.8em;
+    font-size: 125%;
+    font-weight: bold;
+}
+
+#kundbild {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+    #kundbild input[type="file"] {
+        margin-top: 10px;
+    }
+
+#fotolab {
+    margin-right: 10px;
+}
+
+#sendknapp, .sendknapp {
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+#rensa {
+    margin-left: 30px;
+    background-color: #397ab7;
+    color: white;
+    font-weight: bolder;
+    font-size: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    margin-top: 100px; /* Location of the box */
+    padding-top: 50px;
+    left: 20px;
+    top: 0;
+    width: 270px; /* Full width */
+    height: 330px; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    resize: none;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+img.modal-content {
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 300px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 250px;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 15px;
+    height: 150px;
+    font-weight: bold;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* The Close Button */
+div span.myclose {
+    position: absolute;
+    top: 1px;
+    right: 15px;
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: bolder;
+    transition: 0.3s;
+}
+
+.myclose:hover,
+.myclose:focus {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+td.klickbar {
+    text-decoration-line: underline;
+    text-decoration-color: blue;
+    font-weight: bolder;
+    color: blue;
+    cursor: pointer;
+}
+
+.red-text-danger {
+    color: red;
+    font-weight: bolder;
+    font-size: 14px;
+}
+
+.mediaknapp {
+    background-color: #397ab7;
+    color: white;
+    font-weight: bolder;
+    font-size: 16px;
+}
+
+#intent{
+    margin-top:30px;
+    margin-left:30px;
+}
+
+.epost {
+    color: blue;
+    text-decoration-color: blue;
+    text-decoration-line: underline;
+}
+
+@media screen and (min-width: 501px) {
+    #usertable {
+        width: 60%;
+        table-layout: fixed;
+        margin: auto;
+        border: 1px solid black;
+    }
+
+    #guesttable {
+        width: 85%;
+        margin: auto;
+        border: 1px solid black;
+    }
+
+    #guestimg {
+        width: 150px;
+        height: auto;
+    }
+}
+
+#usertable th, #usertable td,
+#guesttable th, #guesttable td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+@media screen and (max-width: 500px) {
+    #usertable {
+        width: 90%;
+        table-layout: fixed;
+        margin: auto;
+        border: 1px solid black;
+    }
+
+    #guesttable {
+        width: 90%;
+        margin: auto;
+        border: 1px solid black;
+    }
+
+    #guestimg {
+        width: 90px;
+        height: auto;
+    }
+}
+
+#footerright {
+    float: right;
+    margin-right: 20px;
+    font-size: 12px;
+}

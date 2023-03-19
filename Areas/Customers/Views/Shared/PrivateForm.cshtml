@@ -1,0 +1,53 @@
+﻿@model Projekt.Models.PrivateCustomer
+@{
+    ViewBag.Title = "PrivatForm";
+    Layout = ViewBag.Layout;
+}
+<h2>Privat kund</h2>
+<p>
+    Detta formulär är avsett för registrering av privatpersoner.<br />
+    Registrera kunden här, om kunden köper böcker för privatbruk.<br />
+</p>
+<br />
+@using (Html.BeginForm("RegisterPrivate", "Admin", FormMethod.Post,
+new { enctype = "multipart/form-data" }))
+{
+    <table id="privatform" class="form-horizontal">
+
+        <tr>
+            <td>@Html.LabelFor(m => m.PersonNamn, htmlAttributes: new { @class = "control-label col-md-2" }) </td>
+            <td>@Html.EditorFor(m => m.PersonNamn, new { htmlAttributes = new { @class = "form-control" } }) </td>
+            <td>@Html.ValidationMessageFor(m => m.PersonNamn, "", new { @class = "red-text-danger" }) </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.GatuAdress, htmlAttributes: new { @class = "control-label col-md-2" }) </td>
+            <td>@Html.EditorFor(m => m.GatuAdress, new { htmlAttributes = new { @class = "form-control" } }) </td>
+            <td>@Html.ValidationMessageFor(m => m.GatuAdress, "", new { @class = "red-text-danger" }) </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Ort, htmlAttributes: new { @class = "control-label col-md-2" }) </td>
+            <td>@Html.EditorFor(m => m.Ort, new { htmlAttributes = new { @class = "form-control" } }) </td>
+            <td>@Html.ValidationMessageFor(m => m.Ort, "", new { @class = "red-text-danger" }) </td>
+        </tr>
+        <tr>
+            <td id="bred">@Html.LabelFor(m => m.Land, htmlAttributes: new { @class = "control-label col-md-2" }) </td>
+            <td>
+                @Html.DropDownListFor(m=> m.Land,
+                    new SelectList(Enum.GetValues(typeof(Land))),
+                    new { @id = "landdrop", @class = "form-control" })
+                <br />
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Land) </td>
+        </tr>
+        <tr>
+            <td id="dinbild">@Html.Label("Frivilligt foto", "Frivilligt foto", htmlAttributes: new { @id = "fotolab", @class = "control-label col-md-2" }) </td>
+            <td><input type="file" name="Image" />  &nbsp; <br /></td>
+        </tr>
+        <tr>
+            <td> &nbsp; </td>
+            <td><input type="submit" class="btn btn-primary" value="Registrera" /><br /></td>
+        </tr>
+    </table>
+}
+<br />
+<br />

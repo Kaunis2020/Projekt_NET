@@ -1,0 +1,97 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    Layout = "AdminLayout";
+    ViewData["Title"] = "Admin Page";
+    string identity = string.Empty;
+    if (HttpContextAccessor.HttpContext.Session.GetString("Admin") == null)
+    {
+        HttpContextAccessor.HttpContext.Response.Redirect("Start");
+    }
+    else
+    {
+        identity = HttpContextAccessor.HttpContext.Session.GetString("Admin");
+    }
+}
+<div id="centrerat">
+    <img src="~/images/lockico.png" alt="admin" />
+    <h1>Adminsida</h1>
+    <p class="lead"> Du är inloggad som <b>@identity</b></p>
+    <h3>Beskrivning av tillgängliga tjänster</h3>
+    <br />
+    <table id="helptabell">
+        <tr>
+            <th> Områdena </th>
+            <th> Tjänster </th>
+            <th>Beskrivning</th>
+        </tr>
+        <tr>
+            <td rowspan="5" class="redlinks"> Medarbetare </td>
+        </tr>
+        <tr>
+            <td>Sök / Redigera</td>
+            <td>Sök, redigera och radera befintliga medarbetare i databasen</td>
+        </tr>
+        <tr>
+            <td>Lägg in anställd</td>
+            <td>Lägg in helt nya medarbetare i databasen</td>
+        </tr>
+        <tr>
+            <td>Lista anställda</td>
+            <td>Lista samtliga medarbetare som finns i databasen samt spara samtliga medarbetare som nedladdningsbar json-fil</td>
+        </tr>
+        <tr>
+            <td>Lägg avdelning</td>
+            <td>Lägg in helt nya avdelningar vilka kommer att användas som de anställdas kostnadställen</td>
+        </tr>
+        <tr>
+            <td rowspan="5" class="redlinks"> Kunder </td>
+        </tr>
+        <tr>
+            <td>Sök / Redigera</td>
+            <td>Sök, redigera och radera befintliga kunder i databasen</td>
+        </tr>
+        <tr>
+            <td>Lägg in ny kund</td>
+            <td>Lägg in helt nya kunder i databasen</td>
+        </tr>
+        <tr>
+            <td>Lista kunder</td>
+            <td>Lista samtliga kunder som finns i databasen samt spara samtliga kunder som nedladdningsbar json-fil</td>
+        </tr>
+        <tr>
+            <td>Visa meddelanden</td>
+            <td>Visa samtliga meddelanden från företagets kunder samt läs och radera meddelanden</td>
+        </tr>
+        <tr>
+            <td rowspan="5" class="redlinks"> Produkter </td>
+        </tr>
+        <tr>
+            <td>Sök / Redigera</td>
+            <td>Sök, redigera och radera befintliga produkter i databasen</td>
+        </tr>
+        <tr>
+            <td>Lägg in nya media</td>
+            <td>Lägg in nytillkomna produkter i databasen</td>
+        </tr>
+        <tr>
+            <td>Lista alla media</td>
+            <td>Lista alla befintliga produkter som finns i databasen</td>
+        </tr>
+        <tr>
+            <td>Visa statistiken</td>
+            <td>Visa statistiken för företagets samtliga produkter, statistiskt fördelade på produkternas huvudtyp, kategori och genre</td>
+        </tr>
+    </table>
+    <br />
+</div>
+<br />
+<br />
+<div class="centrerat">
+    <div class="links">
+        <p>@Html.ActionLink("Tillbaka till Adminsidan", "Adminsida", "Admin")</p>
+    </div>
+</div>
+<br />
+<br />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -1,0 +1,105 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    Layout = "AdminLayout";
+    ViewData["Title"] = "Admin Page";
+    string identity = string.Empty;
+    if (HttpContextAccessor.HttpContext.Session.GetString("Admin") == null)
+    {
+        HttpContextAccessor.HttpContext.Response.Redirect("Start");
+    }
+    else
+    {
+        identity = HttpContextAccessor.HttpContext.Session.GetString("Admin");
+    }
+}
+
+<audio controls id="nyaudio" preload="auto">
+    <source src="~/audio/error.mp3" type="audio/mpeg">
+</audio>
+<div id="centrerat">
+    <div id="placeholder">
+        <div id="parent"></div>
+        <div id="messagediv"></div>
+    </div>
+    <img src="~/images/lockico.png" alt="admin" />
+    <h1>Adminsida</h1>
+    <p class="lead"> Du är inloggad som <b>@identity</b></p>
+    <div class="helplinks">
+        <p>@Html.ActionLink("Hjälpfil", "Services", "Admin")</p>
+    </div>
+    <br />
+    <h3>Tillgängliga tjänster</h3>
+    <br />
+    <br />
+    <div id="output" class="myownmodal">
+        <span class="myownclose" onclick="close__this();">&times;</span>
+    </div>
+</div>
+<div id="container">
+    <div class="left">
+        <h3> Anställda</h3>
+        <ul>
+            <li class="links"><a href="@Url.Action("SearchEmpl", "Admin")"> Sök / Redigera</a></li>
+            <li class="links"><a href="@Url.Action("NewEmployee", "Admin")"> Lägg in anställd</a></li>
+            <li class="links"><a href="@Url.Action("ListEmployees", "Admin")"> Lista anställda</a></li>
+            <li class="links"><a id="klick_a"> Lägg avdelning</a></li>
+        </ul>
+    </div>
+    <div class="mitt">
+        <h3> Kunder </h3>
+        <ul>
+            <li class="links"><a href="@Url.Action("SearchCustomer", "Admin")"> Sök / Redigera</a></li>
+            <li class="links"><a href="@Url.Action("NewCustomer", "Admin")">Lägg in ny kund</a></li>
+            <li class="links"><a href="@Url.Action("AllCustomers", "Admin")">Lista alla kunder</a></li>
+            <li class="links"><a href="@Url.Action("AllMessages", "Admin")" target="_blank"> Visa meddelande</a></li>
+        </ul>
+    </div>
+    <div class="right">
+        <h3>Produkter</h3>
+        <ul>
+            <li class="links"><a href="@Url.Action("SearchMedia", "Admin")"> Sök / Redigera</a></li>
+            <li class="links"><a href="@Url.Action("AddNewMedia", "Admin")">Lägg ny media</a></li>
+            <li class="links"><a href="@Url.Action("AllTheMedia", "Admin")" target="_blank">Lista alla media</a></li>
+            <li class="links"><a id="klick_e"> Visa statistiken</a></li>
+        </ul>
+    </div>
+</div>
+<br />
+<br />
+<div id="formdiv">
+    <span class="editkryss" onclick="_closeThis();">&times;</span>
+    <br />
+    <br />
+    <h4>Lägg in ny avdelning</h4>
+    <br />
+    <p id="nydeparform">
+        <label for="nydepart"> Ny Avdelning</label><br />
+        <input type="text" class="form-control" id="nydepart" name="nydepart" placeholder="Ny Avdelning"><br />
+        <button id="sparaknapp" onclick="addDepart();"> Spara </button>
+    </p>
+</div>
+<br />
+<div id="notes"></div>
+<br />
+<br />
+<div>
+    <p>@ViewBag.Information</p>
+</div>
+
+<p class="links">
+    <a asp-controller="Home" asp-action="Index">Home</a>
+</p>
+
+<p class="links">
+    <a asp-controller="Admin" asp-action="LogOut">
+        Logga ut &nbsp; &nbsp; <img src="~/images/logout.png" alt="logout" />
+    </a>
+</p>
+<br />
+<br />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/ny_admin.js"></script>
+<script src="~/js/clippy.js"></script>
+<script src="~/js/bonziload.js"></script>

@@ -1,0 +1,84 @@
+﻿@using Projekt.Models
+@model IEnumerable<Dvd>
+@{
+    ViewBag.Title = "OurVideo";
+    Layout = "~/Views/Shared/BasicLayout.cshtml";
+}
+<div class="centertable">
+    <div id="utbud">
+        <h2>Utbud av våra filmer och video</h2>
+    </div>
+    <table id="optiontable">
+        <tr><td><p class="info">Här kan Du se urval av våra DVD-skivor med filmer och video</p></td></tr>
+        <tr><td class="tdcenter"><p><input type="text" id="sokruta" name="sokruta" placeholder=" SÖK HÄR... "></p></td></tr>
+        <tr>
+            <td class="tdcenter">
+                <div class="styled-select-table">
+                    <select size="1" onchange="visaValet(Media.DVD, this.value)">
+                        <option value="#" selected="selected" id="stor"> VÄLJ HÄR </option>
+                        <option value="alla"> Alla poster </option>
+                        <option value="Action"> Action, actionthriller</option>
+                        <option value="Animerad film"> Animerad film</option>
+                        <option value="Barnfilm"> Barnfilm </option>
+                        <option value="Biografi"> Biografi</option>
+                        <option value="Historisk film"> Historisk film</option>
+                        <option value="Datorspel"> Datorspel</option>
+                        <option value="Drama"> Drama </option>
+                        <option value="Katastroffilm"> Katastroffilm</option>
+                        <option value="Musikfilm, musikal"> Musikfilm, musikal</option>
+                        <option value="Science fiction"> Science fiction</option>
+                        <option value="Skräckfilm"> Skräckfilm</option>
+                        <option value="Thriller"> Thriller</option>
+                        <option value="Övrigt"> Övrigt </option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<br />
+<div id="videoModal" class="videomodal">
+    <span class="myclose" onclick="closevideo();">&times;</span>
+    <div id="rightspalt">
+        <div id="vdstory"></div>
+        <div id="year"></div>
+    </div>
+    <div id="leftspalt">
+        <img class="videomodal-content" id="img01">
+        <div id="videocaption"></div>
+    </div>
+</div>
+@{
+    if (Model != null && Model.Count() > 0)
+    {
+        <div id="tabell">
+            <table>
+                <tr>
+                    <th> Nr </th>
+                    <th>Titel</th>
+                    <th>Skapad av</th>
+                    <th>Kategori</th>
+                    <th>Pris, kr</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr id="klickbar" onclick="changeImageStory('../images/@item.Picture', '@item.Skapare', '@item.Description', '@item.Year')">
+                        <td>@item.Nummer</td>
+                        <td>@item.Titel</td>
+                        <td>@item.Skapare</td>
+                        <td>@item.Genre</td>
+                        <td>@item.Pris</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+}
+<br />
+<p>
+    <br />
+    <br />
+</p>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/getmedia.js"></script>
+<script src="~/js/dvdvideo.js" asp-append-version="true"></script>

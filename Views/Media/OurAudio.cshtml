@@ -1,0 +1,84 @@
+﻿@using Projekt.Models
+@model IEnumerable<Cd>
+@{
+    Layout = "~/Views/Shared/BasicLayout.cshtml";
+    ViewBag.Title = "OurAudio";
+}
+<div class="centertable">
+    <div id="utbud">
+        <h2>Utbud av vår musik och audio</h2>
+    </div>
+    <table id="optiontable">
+        <tr>
+            <td>
+                <p class="info">Här kan Du se urval av våra CD-skivor med musik och audio</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="tdcenter">
+                <p><input type="text" id="sokruta" name="sokruta" placeholder=" SÖK HÄR... "></p>
+            </td>
+        </tr>
+        <tr>
+            <td class="tdcenter">
+                <div class="styled-select-table">
+                    <select size="1" onchange="visaValet(Media.CD, this.value)">
+                        <option value="#" selected="selected" id="stor"> VÄLJ HÄR </option>
+                        <option value="alla"> Alla poster </option>
+                        <option value="Balettmusik"> Balettmusik </option>
+                        <option value="Chanson"> Chanson </option>
+                        <option value="Julmusik"> Julmusik </option>
+                        <option value="Filmmusik"> Filmmusik </option>
+                        <option value="Klassisk musik"> Klassisk musik </option>
+                        <option value="Ljudbok"> Ljudbok </option>
+                        <option value="Modern musik"> Modern musik </option>
+                        <option value="Pop, populär musik"> Pop, populär musik </option>
+                        <option value="Språkkurs"> Språkkurs </option>
+                        <option value="Övrigt"> Övrigt </option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<br />
+<div id="audioModal" class="audiomodal">
+    <audio id="musik" class="modal-content" preload="auto" controls volume="1.0"></audio>
+    <span class="myclose" onclick="closeaudio();">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+@{
+    if (Model != null && Model.Count() > 0)
+    {
+        <div id="tabell">
+            <table>
+                <tr>
+                    <th> Nr </th>
+                    <th>Titel</th>
+                    <th>Skapad av</th>
+                    <th>Kategori</th>
+                    <th>Pris, kr</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr id="klickbar" onclick="changeImgWithAudio('../images/@item.Picture', '@item.Skapare' , '../audio/@item.Sound')">
+                        <td>@item.Nummer</td>
+                        <td>@item.Titel</td>
+                        <td>@item.Skapare</td>
+                        <td>@item.Genre</td>
+                        <td>@item.Pris</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+}
+<br />
+<p>
+    <br />
+    <br />
+</p>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/getmedia.js"></script>
+<script src="~/js/cdaudio.js"></script>

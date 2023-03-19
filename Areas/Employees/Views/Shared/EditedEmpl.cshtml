@@ -1,0 +1,81 @@
+﻿@model Projekt.Models.Employee
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    string identity = string.Empty;
+
+    if (HttpContextAccessor.HttpContext.Session.GetString("Admin") == null)
+    {
+        HttpContextAccessor.HttpContext.Response.Redirect("Start");
+    }
+    else
+    {
+        identity = HttpContextAccessor.HttpContext.Session.GetString("Admin");
+    }
+    ViewBag.Title = "Edited";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br/>
+<h2>Information</h2>
+<br/>
+<div class="lead">
+    <p>@ViewBag.Message</p>
+</div>
+<h4>@Model.First_name &nbsp; @Model.Last_name</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="" asp-controller="" asp-method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nummer" class="control-label"></label>
+                <input asp-for="Nummer" class="form-control" value="@Model.Nummer" readonly="readonly" />
+                <span asp-validation-for="Nummer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ID" class="control-label"></label>
+                <input asp-for="ID" class="form-control" value="@Model.ID" readonly="readonly" />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="First_name" class="control-label"></label>
+                <input asp-for="First_name" class="form-control" value="@Model.First_name" readonly="readonly" />
+                <span asp-validation-for="First_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Last_name" class="control-label"></label>
+                <input asp-for="Last_name" class="form-control" value="@Model.Last_name" readonly="readonly" />
+                <span asp-validation-for="Last_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" value="@Model.Email" readonly="readonly" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" value="@Model.Phone" readonly="readonly" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Department" class="control-label"></label>
+                <input asp-for="Department" class="form-control" value="@Model.Department" readonly="readonly" />
+                <span asp-validation-for="Department" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bild" class="control-label"></label>
+                <input asp-for="Bild" class="form-control" value="@Model.Bild" readonly="readonly" />
+                <span asp-validation-for="Bild" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<br />
+<div class="links">
+    <p>@Html.ActionLink("Tillbaka", "Adminsida", "Admin")</p>
+</div>
+<br/>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

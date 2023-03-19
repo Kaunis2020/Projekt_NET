@@ -1,0 +1,215 @@
+﻿/* CSS Document */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: white;
+}
+
+#nyaudio {
+    display: none;
+}
+
+#main {
+    max-width: 995px;
+    width: 100%;
+    margin: auto;
+}
+
+#result {
+    font-size: 22px;
+    font-weight: bold;
+    color: red;
+}
+
+#lock {
+    float: left;
+    margin: 5px 5px 10px 20px;
+}
+
+#logga {
+    float: right;
+    margin-right: 15px;
+}
+
+    #logga a {
+        font-size: 22px;
+        font-family: Bookman Old Style;
+        font-weight: bold;
+    }
+
+a {
+    font-family: Verdana;
+    font-size: 15px;
+    font-weight: bold;
+    color: red;
+}
+
+#read {
+    float: left;
+    margin-right: 25px;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-family: Bookman Old Style;
+    font-size: 38px;
+    color: #ba55d3;
+}
+
+#taggs, #sokruta {
+    margin: 30px;
+    height: 44px;
+    width: 250px;
+    background-color: white;
+    background-image: url('../images/searchicon.png');
+    background-position: 2px 1px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    border: 2px solid;
+    border-color: #ccc000;
+    border-radius: 5px;
+}
+
+#utbud {
+    margin-top: 30px;
+    margin-left: 60px;
+    margin-bottom: 30px;
+}
+
+#Bildspel {
+    border-style: ridge;
+    border-color: #54a976;
+    padding: 1px;
+}
+
+#Album {
+    display: block;
+    float: right;
+    margin: 15px;
+    padding: 0px;
+}
+
+#CaptionBox {
+    margin-left: 2px;
+    margin-right: 2px;
+    text-align: center;
+    background-color: #24fea9;
+    color: #ff66ff;
+    font-family: Verdana;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+p {
+    margin: 15px;
+    font-size: 18px;
+}
+
+#tabell {
+    width: 96%;
+    margin: auto;
+}
+
+    #tabell table {
+        float: left;
+        width: 96%;
+        margin-left: 20px;
+        margin-bottom: 20px;
+        border: 1px solid black;
+    }
+
+    #tabell th, #tabell td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid black;
+    }
+
+.styled-select {
+    margin-left: 250px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    width: 230px;
+    height: 35px;
+    overflow: hidden;
+    background: url('../images/Select.png') no-repeat;
+    border-radius: 10px;
+}
+
+    .styled-select select {
+        background: transparent;
+        width: 228px;
+        padding: 5px;
+        border: 1px solid #CCC;
+        font-size: 16px;
+        height: 34px;
+        font-weight: bold;
+        outline: 0px;
+        -webkit-appearance: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .styled-select option {
+        background: lightgrey;
+        width: 228px;
+        padding: 5px;
+        border: 1px solid #CCC;
+        font-size: 16px;
+        height: 34px;
+        outline: 0px;
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+
+#stor {
+    font-family: "Arial";
+    font-size: 16px;
+    font-weight: bold;
+}
+
+p.info {
+    margin-top: 35px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+#footer {
+    clear: both;
+}
+
+#fp {
+    float: right;
+    text-align: right;
+}
+
+footer.egenfooter {
+    clear: both;
+    padding-top: 40px;
+}
+
+#lockdiv {
+    float: left;
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+}
+
+#footerright {
+    float: right;
+    margin-right: 20px;
+    font-size:15px;
+}
+
+#topcentrerat {
+    width: 35%;
+    margin: auto;
+    margin-top: 40px;
+    align-content: center;
+    justify-content: center;
+}

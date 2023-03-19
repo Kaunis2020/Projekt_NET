@@ -1,0 +1,71 @@
+﻿@using Projekt.Models
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@model IEnumerable<Customer>
+@{
+    string identity = string.Empty;
+
+    if (HttpContextAccessor.HttpContext.Session.GetString("Admin") == null)
+    {
+        HttpContextAccessor.HttpContext.Response.Redirect("Start");
+    }
+    else
+    {
+        identity = HttpContextAccessor.HttpContext.Session.GetString("Admin");
+    }
+
+    ViewBag.Title = "Search Employee";
+    Layout = "AdminLayout";
+}
+<audio controls id="nyaudio" preload="auto">
+    <source src="~/audio/error.mp3" type="audio/mpeg">
+</audio>
+<br />
+
+<div id="centrerat">
+    <p>Du är inloggad som <b>@identity</b></p>
+</div>
+<table id="searchtable">
+    <caption>Sök anställda samt editera och radera</caption>
+    <tr>
+        <th>Sök med autocomplete</th>
+        <th>Sök med valfria sökord</th>
+    </tr>
+    <tr>
+        <td>I rutan nedan sök med autocomplete</td>
+        <td>I rutan nedan sök med valfria sökord</td>
+    </tr>
+    <tr>
+        <td>
+            <div class="ui-widget">
+                <input id="taggs">
+            </div>
+        </td>
+        <td>
+            <div>
+                <input type="text" id="sokruta" name="sokruta" placeholder=" Fritext... ">
+            </div>
+        </td>
+    </tr>
+</table>
+<br />
+<br />
+<div id="result" class="lead"></div>
+<br />
+<br />
+<div id="myModal" class="modal">
+    <span class="myclose" onclick="closethis();">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+<div id="tabell"></div>
+<br />
+<div id="formdiv" class="red-text-danger"></div>
+<br />
+<div class="red-text-danger"><p>@ViewBag.Message</p></div>
+<div class="links">
+    <p>@Html.ActionLink("Tillbaka", "Adminsida", "Admin")</p>
+</div>
+<script src="~/lib/jquery/dist/jquery-ui.js"></script>
+<script src="~/js/medarbetare.js"></script>

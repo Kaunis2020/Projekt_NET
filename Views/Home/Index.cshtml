@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="jumbotron">
+    <div id="jubmboholder">
+        <a href="@Url.Action("AdminLogin", "Admin")">
+            <img src="~/images/logo.jpg" id="logo" alt="logo" />
+        </a>
+        <br />
+        <h1 class="rubrik">Bonzi's Mediabutik AB</h1>
+        <p class="lead">Bonzi's Mediabutik AB är Sveriges största mediaaffär på nätet!</p>
+        <br />
+        <br />
+        <p><a href="@Url.Action("OurMedia", "Media")" class="btn btn-primary btn-lg"> Klicka  &raquo;</a></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Våra tryckta böcker</h2>
+        <p>Om Du vill se alla våra tryckta böcker i pappersform,<br /> kan Du klicka på länken nedan.<br /></p><br />
+        <p><a class="mediaknapp btn btn-default" href="@Url.Action("OurBooks", "Media")">Klicka  &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Vår musik och audio</h2>
+        <p>Om Du vill se musik och audio, kan Du klicka på<br />länken nedan. Här kan Du också provlyssna musik.</p><br />
+        <p><a class="mediaknapp btn btn-default" href="@Url.Action("OurAudio", "Media")">Klicka  &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Våra filmer och video</h2>
+        <p>Om Du vill se våra filmer och video, kan Du klicka på länken nedan.<br /></p><br />
+        <p><a class="mediaknapp btn btn-default" href="@Url.Action("OurVideo", "Media")">Klicka  &raquo;</a></p>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/agentscript.js" asp-append-version="true"></script>

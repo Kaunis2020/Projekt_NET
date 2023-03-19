@@ -1,0 +1,57 @@
+﻿@using Projekt.Models
+@model IEnumerable<Employee>
+@{ 
+    var my_sign = '▲';
+    var mysign = '▲';
+
+    if (ViewData["NumSortParm"].ToString() == "")
+    {
+        my_sign = '▲';
+    }
+    else
+    {
+        my_sign = '▼';
+    }
+    if (ViewData["AvdSortParm"].ToString() == "Avdelning")
+    {
+        mysign = '▲';
+    }
+    else
+    {
+        mysign = '▼';
+    }
+}
+
+@if (Model != null && Model.Count() > 0)
+{
+<table>
+    <caption>
+        <h1> Våra Fina Medarbetare</h1><br/>
+        <p class="h4">
+            Nedan kan Du se alla våra medarbetare, som ingår i vårt underbara arbetsteam.<br/>
+            Klicka på varje medarbetare för att se<br/>
+        </p>
+    </caption>
+    <tr>
+        <th><a href="@Url.Action("allOurEmployees", "Home", new { sortOrder = ViewData["NumSortParm"] })" class="redlinks"> Nr  &nbsp;  @my_sign  </a></th>
+        <th>ID</th>
+        <th>Namn</th>
+        <th><a href="@Url.Action("allOurEmployees", "Home", new { sortOrder = ViewData["AvdSortParm"] })" class="redlinks">Avdelning  &nbsp; @mysign </a></th>
+        <th>E-post</th>
+        <th>Telefon</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        string namn = item.First_name + "  " + item.Last_name;
+        <tr class="onclick" onclick="changeImg('../images/@item.Bild', '@namn')">
+            <td>@item.Nummer</td>
+            <td>@item.ID</td>
+            <td>@namn</td>
+            <td>@item.Department</td>
+            <td class="epost">@item.Email</td>
+            <td>@item.Phone</td>
+        </tr>
+    }
+</table>
+}
+<br/>

@@ -1,0 +1,79 @@
+﻿@using Projekt.Models
+@model IEnumerable<Book>
+@{
+    Layout = "~/Views/Shared/BasicLayout.cshtml";
+    ViewBag.Title = "OurBooks";
+}
+<div class="centertable">
+    <div id="utbud">
+        <h2> Utbud av våra tryckta böcker </h2>
+    </div>
+    <table id="optiontable">
+        <tr>
+            <td><p class="info"> Här kan Du se utbudet av våra tryckta böcker i pappersformat </p></td>
+        </tr>
+        <tr>
+            <td class="tdcenter">
+                <p><input type="text" id="sokruta" name="sokruta" placeholder=" SÖK HÄR... "></p>
+            </td>
+        </tr>
+        <tr>
+            <td class="tdcenter">
+                <div class="styled-select-table">
+                    <select size="1" onchange="visaValet(Media.BOK, this.value)">
+                        <option value="#" selected="selected" id="stor"> VÄLJ HÄR </option>
+                        <option value="alla"> Alla poster </option>
+                        <option value="Barnlitteratur"> Barnlitteratur </option>
+                        <option value="Handarbete"> Handarbete </option>
+                        <option value="Historisk roman"> Historisk roman </option>
+                        <option value="Datateknik, datavetenskap"> Datavetenskap</option>
+                        <option value="Drama"> Drama </option>
+                        <option value="Kost, Matlagning"> Kost, Matlagning </option>
+                        <option value="Lingvistik och språk"> Lingvistik och språk</option>
+                        <option value="Övrigt"> Övrigt </option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<br />
+<div id="myModal" class="modal">
+    <span class="myclose" onclick="closethis();">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+@{
+    if (Model != null && Model.Count() > 0)
+    {
+        <div id="tabell">
+            <table>
+                <tr>
+                    <th> Nr </th>
+                    <th>Titel</th>
+                    <th>Författare</th>
+                    <th>Kategori</th>
+                    <th>Pris, kr</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr id="klickbar" onclick="changeImg('../images/@item.Picture', '@item.Skapare')">
+                        <td>@item.Nummer</td>
+                        <td>@item.Titel</td>
+                        <td>@item.Skapare</td>
+                        <td>@item.Genre</td>
+                        <td>@item.Pris</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+}
+<br />
+<p>
+    <br />
+    <br />
+</p>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/getmedia.js"></script>
+<script src="~/js/bokskript.js"></script>

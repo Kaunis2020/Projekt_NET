@@ -1,0 +1,88 @@
+﻿@using Projekt.Models
+@model IEnumerable<Employee>
+@{
+    ViewBag.Title = "EmployeeList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+    var my_sign = '▲';
+    var mysign = '▲';
+
+    if (ViewData["NumSortParm"].ToString() == "")
+    {
+        my_sign = '▲';
+    }
+    else
+    {
+        my_sign = '▼';
+    }
+    if (ViewData["AvdSortParm"].ToString() == "Avdelning")
+    {
+        mysign = '▲';
+    }
+    else
+    {
+        mysign = '▼';
+    }
+}
+<h2> Lista över Medarbetare</h2>
+<br />
+<p class="links"> @Html.ActionLink("Spara listan med anställda", "GetEmploList", "Admin") </p>
+<br />
+<div id="myModal" class="modal">
+    <span class="myclose" onclick="closethis();">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+<div class="left">
+    <label id="stor"> VISA VALDA AVDELNINGAR HÄR OCH SORTERA MEDARBETARE EFTER AVDELNING </label>
+</div>
+<br />
+<br />
+<div class="styled-select">
+    @Html.DropDownList("Department", new SelectList(DepartmentHandler.GetSortedDepartments(), "Value", "Value"), new { @class = "form-control", @size = "1", @onclick = "visaValet(this.value)" })
+</div>
+<br />
+<div id="empltabell">
+    <div id="laddat">
+        @if (Model != null && Model.Count() > 0)
+        {
+            <table>
+                <tr>
+                    <th><a href="@Url.Action("ListEmployees", "Admin", new { sortOrder = ViewData["NumSortParm"] })" class="redlinks"> Nr  &nbsp;  @my_sign  </a></th>
+                    <th>ID</th>
+                    <th>Namn</th>
+                    <th><a href="@Url.Action("ListEmployees", "Admin", new { sortOrder = ViewData["AvdSortParm"] })" class="redlinks">Avdelning  &nbsp; @mysign </a></th>
+                    <th>E-post</th>
+                    <th>Telefon</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    string namn = item.First_name + "  " + item.Last_name;
+                    <tr id="klickbar" onclick="changeImg('../images/@item.Bild', '@namn')">
+                        <td>@item.Nummer</td>
+                        <td>@item.ID</td>
+                        <td>@namn</td>
+                        <td>@item.Department</td>
+                        <td class="epost">@item.Email</td>
+                        <td>@item.Phone</td>
+                    </tr>
+                }
+            </table>
+            <br />
+            <br />
+        }
+    </div>
+</div>
+<br />
+<br />
+<div class="topcentrerat">
+    <div class="links">
+        <p>@Html.ActionLink("Tillbaka till Adminsidan", "Adminsida", "Admin")</p>
+    </div>
+</div>
+<br />
+<br />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/display.js"></script>
+<script src="~/js/employees.js"></script>

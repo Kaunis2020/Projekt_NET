@@ -1,0 +1,91 @@
+﻿@using Projekt.Models
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@model IEnumerable<Customer>
+@{
+    string identity = string.Empty;
+
+    if (HttpContextAccessor.HttpContext.Session.GetString("Admin") == null)
+    {
+        HttpContextAccessor.HttpContext.Response.Redirect("Start");
+    }
+    else
+    {
+        identity = HttpContextAccessor.HttpContext.Session.GetString("Admin");
+    }
+
+    ViewBag.Title = "KundList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<audio controls id="nyaudio" preload="auto">
+    <source src="~/audio/error.mp3" type="audio/mpeg">
+</audio>
+<br />
+<div id="centrerat">
+    <p>Du är inloggad som <b>@identity</b></p>
+</div>
+<table id="searchtable">
+    <caption>Sök kunder samt editera och radera</caption>
+    <tr>
+        <th>Sök med autocomplete</th>
+        <th>Sök med valfria sökord</th>
+    </tr>
+    <tr>
+        <td>I rutan nedan sök med autocomplete</td>
+        <td>I rutan nedan sök med valfria sökord</td>
+    </tr>
+    <tr>
+        <td>
+            <div class="ui-widget">
+                <input id="taggs">
+            </div>
+        </td>
+        <td>
+            <div>
+                <input type="text" id="sokruta" name="sokruta" placeholder=" Fritext... ">
+            </div>
+        </td>
+    </tr>
+</table>
+<br />
+<br />
+<div id="result" class="lead"></div>
+<br />
+<br />
+<div id="myModal" class="modal">
+    <span class="myclose" onclick="closethis();">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+<div id="tabell"></div>
+<br />
+<div id="formdiv">
+    <p id="kundadrform">
+        <span class="editkryss" onclick="close__this();">&times;</span>
+        <br />
+        <br />
+        <input type="hidden" id="kundid" name="kundid" />
+        <label for="kund"> Kunden</label><br />
+        <input type="text" class="form-control" id="kund" name="kund"><br />
+        <label for="nygata"> Ny gatuadress</label><br />
+        <input type="text" class="form-control" id="nygata" name="nygata" placeholder="Ny gatuadress"><br />
+        <label for="nyort"> Ny ort</label><br />
+        <input type="text" class="form-control" id="nyort" name="nyort" placeholder="Ny ort eller stad"><br />
+        <label for="land">Land</label><br />
+        @Html.DropDownList("Land",
+                     new SelectList(Enum.GetValues(typeof(Land))),
+                     new { @id = "landdrop", @class = "form-control" })
+        <br />
+        <button id="sparaknapp" onclick="NyKundAdress();"> Spara </button>
+    </p>
+</div>
+<br />
+<br />
+<div class="links">
+    <p>@Html.ActionLink("Tillbaka", "Adminsida", "Admin")</p>
+</div>
+<script src="~/lib/jquery/dist/jquery-3.6.0.min.js"></script>
+<script src="~/lib/jquery/dist/jquery-1.12.4.js"></script>
+<script src="~/lib/jquery/dist/jquery-ui.js"></script>
+<script src="~/js/adminsite.js"></script>

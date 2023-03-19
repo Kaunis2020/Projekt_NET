@@ -1,0 +1,65 @@
+﻿@using Projekt.Models
+@model IEnumerable<Media>
+
+@{
+    var mysign = '▲';
+    var my_sign = '▲';
+    var mysign_ = '▲';
+    if (ViewData["TitSortParm"].ToString() == "Titel")
+    {
+        mysign = '▲';
+    }
+    else
+    {
+        mysign = '▼';
+    }
+    if (ViewData["NameSortParm"].ToString() == "")
+    {
+        my_sign = '▲';
+    }
+    else
+    {
+        my_sign = '▼';
+    }
+    if (ViewData["KatSortParm"].ToString() == "Kategori")
+    {
+        mysign_ = '▲';
+    }
+    else
+    {
+        mysign_ = '▼';
+    }
+}
+
+@if (Model != null && Model.Count() > 0)
+{
+    <div id="tabell">
+        <table>
+            <tr>
+                <th> Nr </th>
+                <th>Typ</th>
+                <th><a href="@Url.Action("OurMedia", "Media", new { sortOrder = ViewData["TitSortParm"] })"> Titel &nbsp; @mysign </a></th>
+                <th><a href="@Url.Action("OurMedia", "Media", new { sortOrder = ViewData["NameSortParm"] })"> Skapad av  &nbsp; @my_sign </a></th>
+                <th><a href="@Url.Action("OurMedia", "Media", new { sortOrder = ViewData["KatSortParm"] })">Kategori &nbsp; @mysign_ </a></th>
+                <th>Pris, kr</th>
+            </tr>
+            @{
+                int lopnummer = 0;
+                foreach (var item in Model)
+                {
+                    lopnummer = lopnummer + 1;
+                    <tr id="klickbar" onclick="showOrdinary('@item.Typ', '../images/@item.Picture', '@item.Skapare', '@item.Description', '@item.ProdYear', '@item.Moms')">
+                        <td>@lopnummer</td>
+                        <td>@item.Typ</td>
+                        <td>@item.Titel</td>
+                        <td>@item.Skapare</td>
+                        <td>@item.Genre</td>
+                        <td>@item.Price</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    <br />
+    <br />
+}

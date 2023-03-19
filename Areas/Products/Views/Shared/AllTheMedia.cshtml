@@ -1,0 +1,100 @@
+﻿@using Projekt.Models
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@model IEnumerable<Media>
+@{
+    ViewBag.Title = "Alla Media";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    string identity = string.Empty;
+
+    if (HttpContextAccessor.HttpContext.Session.GetString("Admin") == null)
+    {
+        HttpContextAccessor.HttpContext.Response.Redirect("Start");
+    }
+    else
+    {
+        identity = HttpContextAccessor.HttpContext.Session.GetString("Admin");
+    }
+}
+<h2>Utbud av våra media</h2>
+<p> Du är inloggad som <b>@identity</b></p>
+<br />
+<div id="genModal" class="genmodal">
+    <span class="myclose" onclick="closeall();">&times;</span>
+    <div id="rightspalt">
+        <div id="typ"></div>
+        <div id="story"></div>
+        <div id="year"></div>
+        <div id="moms"></div>
+    </div>
+    <div id="leftspalt">
+        <img class="videomodal-content" id="img01">
+        <div id="videocaption"></div>
+    </div>
+</div>
+<br />
+@{
+    var mysign = '▲';
+    var my_sign = '▲';
+    var mysign_ = '▲';
+    if (ViewData["TitSortParm"].ToString() == "Titel")
+    {
+        mysign = '▲';
+    }
+    else
+    {
+        mysign = '▼';
+    }
+    if (ViewData["NameSortParm"].ToString() == "")
+    {
+        my_sign = '▲';
+    }
+    else
+    {
+        my_sign = '▼';
+    }
+    if (ViewData["KatSortParm"].ToString() == "Kategori")
+    {
+        mysign_ = '▲';
+    }
+    else
+    {
+        mysign_ = '▼';
+    }
+}
+
+@if (Model != null && Model.Count() > 0)
+{
+    <div id="tabell">
+        <table>
+            <tr>
+                <th> Nr </th>
+                <th>Typ</th>
+                <th><a href="@Url.Action("AllTheMedia", "Admin", new { sortOrder = ViewData["TitSortParm"] })" class="redlinks"> Titel &nbsp; @mysign </a></th>
+                <th><a href="@Url.Action("AllTheMedia", "Admin", new { sortOrder = ViewData["NameSortParm"] })" class="redlinks"> Skapad av  &nbsp; @my_sign </a></th>
+                <th><a href="@Url.Action("AllTheMedia", "Admin", new { sortOrder = ViewData["KatSortParm"] })" class="redlinks">Kategori &nbsp; @mysign_ </a></th>
+                <th>Pris, kr</th>
+            </tr>
+            @{
+                int lopnummer = 0;
+                foreach (var item in Model)
+                {
+                    lopnummer = lopnummer + 1;
+                    <tr id="klickbar" onclick="showOrdinary('@item.Typ', '../images/@item.Picture', '@item.Skapare', '@item.Description', '@item.ProdYear', '@item.Moms')">
+                        <td>@lopnummer</td>
+                        <td>@item.Typ</td>
+                        <td>@item.Titel</td>
+                        <td>@item.Skapare</td>
+                        <td>@item.Genre</td>
+                        <td>@item.Price</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    <br />
+    <br />
+}
+<br />
+<br />
+<script src="~/js/display.js"></script>

@@ -1,0 +1,25 @@
+﻿.customermodal {
+    position: fixed;
+    z-index: 900;
+    height: 130px;
+    width: 130px;
+    top: 300px;
+    background-color: white;
+    opacity: 0.6;
+    display: none;
+}
+
+.center {
+    z-index: 1000;
+    margin: 0px auto;
+    padding: 10px;
+    width: 130px;
+    background-color: white;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+    .center img {
+        height: 120px;
+        width: 120px;
+    }

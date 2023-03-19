@@ -1,0 +1,138 @@
+﻿#searchtable {
+    width: 75%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+    #searchtable caption {
+        display: table-caption;
+        text-align: center;
+        font-size: 25px;
+        font-weight: bolder;
+        padding-bottom: 15px;
+    }
+
+    #searchtable th, #searchtable td {
+        padding: 5px;
+        text-align: center;
+    }
+
+    #searchtable th {
+        font-size: 24px;
+    }
+
+    #searchtable td {
+        font-size: 20px;
+    }
+
+#cdboktable {
+    width: 55%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+     #cdboktable td {
+        padding: 5px;
+        text-align: center;
+    }
+
+    #cdboktable th {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    #cdboktable td {
+        font-size: 20px;
+    }
+
+div.centertable {
+    width: 35%;
+    margin: auto;
+    align-content: center;
+    justify-content: center;
+}
+
+#optiontable table {
+    width: 35%;
+    margin: auto;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+td.tdcenter {
+    text-align: center;
+}
+
+.styled-select-table {
+    margin-left: 150px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    width: 230px;
+    height: 35px;
+    overflow: hidden;
+    background: url('../images/Select.png') no-repeat;
+    border-radius: 10px;
+}
+
+    .styled-select-table select {
+        background: transparent;
+        width: 228px;
+        padding: 5px;
+        border: 1px solid #CCC;
+        font-size: 16px;
+        height: 34px;
+        font-weight: bold;
+        outline: 0px;
+        -webkit-appearance: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .styled-select-table option {
+        background: lightgrey;
+        width: 228px;
+        padding: 5px;
+        border: 1px solid #CCC;
+        font-size: 16px;
+        height: 34px;
+        outline: 0px;
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+
+div.rightplaced {
+    margin-right: 70px;
+    margin-bottom: 20px;
+}
+
+.disablebut {
+    pointer-events: none;
+    color: #999999;
+    cursor: not-allowed no-drop;
+    background-color: #ffffff;
+    border-color: #dddddd;
+}
+
+#taggs, #sokruta {
+    margin: 30px;
+    height: 44px;
+    width: 250px;
+    background-color: white;
+    background-image: url('../images/searchicon.png');
+    background-position: 2px 1px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    border: 2px solid;
+    border-color: #ccc000;
+    border-radius: 5px;
+}
+
+#topcentrerat {
+    width: 35%;
+    margin: auto;
+    margin-top: 40px;
+    align-content: center;
+    justify-content: center;
+}

@@ -1,0 +1,54 @@
+﻿#empltabell {
+    width: 96%;
+    margin: auto;
+}
+
+    #empltabell table {
+        float: left;
+        width: 96%;
+        margin-left: 20px;
+        margin-bottom: 20px;
+        border: 1px solid black;
+    }
+
+    #empltabell th, #empltabell td {
+        padding: 12px;
+        text-align: center;
+        border: 1px solid black;
+    }
+
+.redlinks {
+    line-height: 1.5em;
+    font-size: 110%;
+    font-weight: bolder;
+    color: red;
+}
+
+tr.onclick {
+    cursor: pointer;
+}
+
+#helptabell {
+    width: 99%;
+    margin: auto;
+}
+
+    #helptabell table {
+        float: left;
+        width: 99%;
+        margin-left: 0px;
+        margin-bottom: 20px;
+        border: 1px solid black;
+    }
+
+    #helptabell th, #helptabell td {
+        padding: 12px;
+        text-align: center;
+        border: 1px solid black;
+    }
+
+div.centrerat{
+    width: 90%;
+    margin: auto;
+    text-align:center;
+}

@@ -1,0 +1,84 @@
+﻿@using Projekt.Models
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@model IEnumerable<Customer>
+@{
+    string identity = string.Empty;
+
+    if (HttpContextAccessor.HttpContext.Session.GetString("Admin") == null)
+    {
+        HttpContextAccessor.HttpContext.Response.Redirect("Start");
+    }
+    else
+    {
+        identity = HttpContextAccessor.HttpContext.Session.GetString("Admin");
+    }
+
+    ViewBag.Title = "KundList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Företagets kunder</h2>
+<br />
+<br />
+<p class="links"> @Html.ActionLink("Spara listan med alla kunder", "GetCustomerList", "Admin") </p>
+<br />
+<br />
+<div id="myModal" class="modal">
+    <span class="myclose" onclick="closethis();">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+<div class="styled-select">
+    <select size="1" onchange="visaValet(this.value)">
+        <option value="#" selected="selected" id="stor"> VÄLJ HÄR </option>
+        <option value="alla"> Alla poster </option>
+        <option value="Företag"> Företagskund </option>
+        <option value="Privat"> Privat person </option>
+    </select>
+</div>
+<br />
+<div id="tabell">
+    <div id="laddat">
+        @if (Model != null && Model.Count() > 0)
+        {
+            <table>
+                <tr>
+                    <th> Nr </th>
+                    <th>Kundtyp</th>
+                    <th>Företag</th>
+                    <th>Kontaktperson</th>
+                    <th>Adress</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    string adres = item.GatuAdress + ",  " + item.Ort + ",  " + item.Land;
+                    <tr id="klickbar" onclick="changeImg('../images/@item.Bild', '@item.KontaktPerson')">
+                        <td>@item.Nummer</td>
+                        <td>@item.KundTyp</td>
+                        @if (item.KundTyp.Equals("Företag"))
+                        {
+                            <td>@item.FirmaNamn</td>
+                        }
+                        else
+                        {
+                            <td>@Html.Raw("-------")</td>
+                        }
+                        <td>@item.KontaktPerson</td>
+                        <td>@adres</td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</div>
+<br />
+<br />
+<div class="links">
+    <p>@Html.ActionLink("Tillbaka", "Adminsida", "Admin")</p>
+</div>
+<br />
+<br />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/ladda_data.js"></script>
+<script src="~/js/display.js"></script>

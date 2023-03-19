@@ -1,0 +1,67 @@
+﻿@using Projekt.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@model IEnumerable<Customer>
+@{
+    string identity = string.Empty;
+
+    if (HttpContextAccessor.HttpContext.Session.GetString("Admin") == null)
+    {
+        HttpContextAccessor.HttpContext.Response.Redirect("Start");
+    }
+    else
+    {
+        identity = HttpContextAccessor.HttpContext.Session.GetString("Admin");
+    }
+
+    ViewBag.Title = "Ny Kund";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div id="centrerat">
+    <h2>Registrering av en ny kund</h2>
+    <br />
+    <p>
+        På denna sida kan Du välja att registrera en kund antingen som<br />
+        företagskund eller som privat kund, beroende på om kunden önskar<br />
+        att köpa böcker och andra media för företaget eller för sitt privata bruk.<br />
+    </p>
+    <br />
+    <p> Registrera en ny kund som: <br /> </p>
+    <br />
+    <form asp-action="CustomerForm" asp-controller="Admin"
+          data-ajax="true" data-ajax-method="POST"
+          data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+          data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+        <div class="container">
+            <p>
+                <input type="radio" name="kundtyp" value="firma" class="radioklass"> &nbsp; Företagskund<br>
+                <input type="radio" name="kundtyp" value="privat" class="radioklass" checked> &nbsp; Privat person<br>
+                <br />
+                <input type="submit" id="submitknapp" class="btn btn-primary" name="submit" value=" Välj ">
+                <br />
+            </p>
+        </div>
+    </form>
+    <div id="progress" class="customermodal">
+        <div class="center">
+            <img src="~/images/load.gif" />
+        </div>
+    </div>
+    <div id="kund_form"></div>
+</div>
+<br />
+<br />
+<div class="red-text-danger">
+    <p><b>@ViewBag.Information</b></p>
+</div>
+<br />
+<br />
+<div class="links">
+    <p>@Html.ActionLink("Tillbaka", "Adminsida", "Admin")</p>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.unobtrusive-ajax.js"></script>
+<script src="~/js/admincustomer.js"></script>

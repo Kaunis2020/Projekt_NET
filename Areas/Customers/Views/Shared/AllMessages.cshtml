@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Projekt.Models.Message>
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    string identity = string.Empty;
+
+    if (HttpContextAccessor.HttpContext.Session.GetString("Admin") == null)
+    {
+        HttpContextAccessor.HttpContext.Response.Redirect("Start");
+    }
+    else
+    {
+        identity = HttpContextAccessor.HttpContext.Session.GetString("Admin");
+    }
+    ViewBag.Title = "AllMessages";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Alla meddelanden</h2>
+<br />
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.LabelFor(model => model.FirstOrDefault().Name)
+        </th>
+        <th>
+            @Html.LabelFor(model => model.FirstOrDefault().Email)
+        </th>
+        <th>
+            @Html.LabelFor(model => model.FirstOrDefault().Land)
+        </th>
+        <th>
+            @Html.LabelFor(model => model.FirstOrDefault().Subject)
+        </th>
+        <th>
+            @Html.LabelFor(model => model.FirstOrDefault().Meddelande)
+        </th>
+        <th>
+            @Html.LabelFor(model => model.FirstOrDefault().Datum)
+        </th>
+        <th> Delete </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Land)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Meddelande)
+            </td>
+            <td>
+                @{ var datum = (item.Datum).ToString().Substring(0, 10); }
+                @datum
+            </td>
+            <td class="links hand" onclick="deleteMessage(@item.Number);">Delete</td>
+        </tr>
+    }
+
+</table>
+<br />
+<br />
+<div id="notes"></div>
+<br />
+<br />
+<div class="centrerat">
+    <div class="links">
+        <p>@Html.ActionLink("Tillbaka till Adminsidan", "Adminsida", "Admin")</p>
+    </div>
+</div>
+<br />
+<br />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/ny_admin.js"></script>

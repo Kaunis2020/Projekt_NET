@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "OurAllMedia";
+    Layout = "~/Views/Shared/BasicLayout.cshtml";
+
+    int lopnummer = 0;
+}
+@using Projekt.Models
+@model PaginatedList<Media>
+    <table id="cdboktable">
+        <tr><th> </th><th><h2>Utbud av alla våra media</h2></th><th> </th></tr>
+        <tr>
+            <td><img src="~/images/cdsp1.gif" alt="cd" /></td>
+            <td>
+                <p>
+                    Nedan presenteras utbud av våra media<br />
+                    Klicka på varje media för att se detajlerad information<br/>
+                    Utöver grundpriset tillkommer moms om 6% samt fraktavgift
+                </p>
+            </td>
+            <td><img src="~/images/openbok.gif" alt="bok" /></td>
+        </tr>
+    </table>
+    <div id="genModal" class="genmodal">
+        <span class="myclose" onclick="closeall();">&times;</span>
+        <div id="rightspalt">
+            <div id="typ"></div>
+            <div id="story"></div>
+            <div id="year"></div>
+            <div id="moms"></div>
+        </div>
+        <div id="leftspalt">
+            <img class="videomodal-content" id="img01">
+            <div id="videocaption"></div>
+        </div>
+    </div>
+    @{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+        var next_disabled = !Model.HasNextPage ? "disablebut" : "";
+        var prev_disabled = !Model.HasPreviousPage ? "disablebut" : "";
+    }
+    <div class="rightplaced">
+        <div class="pagination pull-right">
+            <ul class="pagination hand">
+                <li class="page-item first-item  @prevDisabled">
+                    <a href="@Url.Action("OurPagMedia", "Media", new { pageNumber = 1 })"> Första </a>
+                </li>
+                <li class="page-item page-link @prevDisabled @prev_disabled">
+                    <a href="@Url.Action("OurPagMedia", "Media", new { pageNumber = (Model.PageIndex - 1)})" class="@prevDisabled @prev_disabled"> Förra </a>
+                </li>
+                <li class="page-item page-link @nextDisabled @next_disabled">
+                    <a href="@Url.Action("OurPagMedia", "Media", new { pageNumber = (Model.PageIndex + 1)})" class="@nextDisabled @next_disabled"> Nästa </a>
+                </li>
+                <li class="page-item last-item  @nextDisabled">
+                    <a href="@Url.Action("OurPagMedia", "Media", new { pageNumber = 9 })"> Sista </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    @if (Model != null && Model.Count() > 0)
+    {
+        <div id="tabell">
+            <table>
+                <tr>
+                    <th> Nr </th>
+                    <th> Typ </th>
+                    <th>Titel</th>
+                    <th>Skapad av</th>
+                    <th>Kategori</th>
+                    <th>Pris, kr</th>
+                </tr>
+                @{
+                    lopnummer = Model.CurrentItem;
+                    foreach (var item in Model)
+                    {
+                        lopnummer = lopnummer + 1;
+                        <tr id="klickbar" onclick="showOrdinary('@item.Typ', '../images/@item.Picture', '@item.Skapare', '@item.Description', '@item.ProdYear', '@item.Moms')">
+                            <td>@lopnummer</td>
+                            <td>@item.Typ</td>
+                            <td>@item.Titel</td>
+                            <td>@item.Skapare</td>
+                            <td>@item.Genre</td>
+                            <td>@item.Price</td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    }

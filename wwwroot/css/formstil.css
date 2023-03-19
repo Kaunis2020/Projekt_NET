@@ -1,0 +1,116 @@
+﻿#inloggnamn {
+    float: right;
+    margin-right: 20px;
+}
+
+.buttonhold {
+    text-align: center;
+}
+
+#firmform, #privatform {
+    width: 100%;
+}
+
+    #firmform td, #privatform td {
+        margin-top: 5px;
+        padding-top: 5px;
+    }
+
+#nykundsform {
+    width: 70%;
+    margin-left: 30px;
+}
+
+#landdrop {
+    width: 280px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#foto {
+    width: 175px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+#bred {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.radioklass {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-size: 15px;
+}
+
+#centrerat {
+    width: 70%;
+    margin: auto;
+}
+
+    #centrerat h2 {
+        margin-left: 15px;
+        margin-top: 30px;
+    }
+
+#submitknapp {
+    font-size: 14px;
+    font-weight: bold;
+    width: 80px;
+}
+
+.sendknapp {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+#sendknapp {
+    float: right;
+    margin-right: 30px;
+    margin-top: 0;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+#dinbild {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#mediaorder {
+    margin: auto;
+    width: 95%;
+}
+
+#Meddelande {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+#kontaktform {
+    width: 90%;
+    margin: auto;
+}
+
+    #kontaktform a {
+        margin-left: 20px;
+    }

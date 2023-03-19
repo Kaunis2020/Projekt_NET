@@ -1,0 +1,93 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "AdminLayout";
+    string identity = string.Empty;
+
+    if (HttpContextAccessor.HttpContext.Session.GetString("Admin") == null)
+    {
+        HttpContextAccessor.HttpContext.Response.Redirect("Start");
+    }
+    else
+    {
+        identity = HttpContextAccessor.HttpContext.Session.GetString("Admin");
+    }
+}
+<audio controls id="nyaudio" preload="auto">
+    <source src="~/audio/error.mp3" type="audio/mpeg">
+</audio>
+<br />
+<table id="searchtable">
+    <caption>Sök media i databasen</caption>
+    <tr>
+        <th>Sök med autocomplete</th>
+        <th>Sök med valfria sökord</th>
+    </tr>
+    <tr>
+        <td>I rutan nedan sök med autocomplete</td>
+        <td>I rutan nedan sök med valfria sökord</td>
+    </tr>
+    <tr>
+        <td>
+            <div class="ui-widget">
+                <input id="taggs">
+            </div>
+        </td>
+        <td>
+            <div>
+                <input type="text" id="sokruta" name="sokruta" placeholder=" Fritext... ">
+            </div>
+        </td>
+    </tr>
+</table>
+<div id="genModal" class="genmodal">
+    <span class="myclose" onclick="closeall();">&times;</span>
+    <div id="rightspalt">
+        <div id="typ"></div>
+        <div id="story"></div>
+        <div id="year"></div>
+    </div>
+    <div id="leftspalt">
+        <img class="videomodal-content" id="img01">
+        <div id="videocaption"></div>
+    </div>
+</div>
+<br />
+<div id="centrerat">
+    <br />
+    <div id="result" class="lead"></div>
+</div>
+<br />
+<br />
+<div id="tabell"></div>
+<br />
+<br />
+<div id="formdiv">
+    <p id="prodform">
+        <span class="editkryss" onclick="close__this();">&times;</span>
+        <br />
+        <br />
+        <label for="medtyp"> Mediatyp</label><br />
+        <input type="text" class="form-control" id="medtyp" name="medtyp"><br />
+        <label for="media"> Media</label><br />
+        <input type="text" class="form-control" id="media" name="media"><br />
+        <input type="hidden" id="prodid" name="prodid" />
+        <label for="nypris"> Nytt pris</label><br />
+        <input type="text" class="form-control" id="nypris" name="nypris" placeholder="Nytt pris, kr "><br />
+        <button id="sparaknapp" onclick="NyProduktPris();"> Spara </button>
+    </p>
+</div>
+<br />
+<div class="red-text-danger"><p>@ViewBag.Message</p></div>
+<br />
+<br />
+<div class="links">
+    <p>@Html.ActionLink("Tillbaka", "Adminsida", "Admin")</p>
+</div>
+<br />
+<br />
+<script src="~/js/jquery-ui.min.js"></script>
+<script src="~/js/adminmedia.js"></script>
+<script src="~/js/display.js"></script>

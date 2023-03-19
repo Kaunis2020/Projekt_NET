@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Medarbetare";
+}
+
+@using Projekt.Models
+@model IEnumerable<Employee>
+@{
+    ViewBag.Title = "EmployeeList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="myModal" class="modal">
+    <span class="myclose" onclick="closethis();">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+<div id="empltabell">
+    @{
+        if (Model != null && Model.Count() > 0)
+        {
+            @await Html.PartialAsync("EmplList", @Model);
+        }
+        else
+        {
+            <p>@ViewBag.Information</p>
+        }
+    }
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/display.js" asp-append-version="true"></script>
